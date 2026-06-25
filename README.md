@@ -229,20 +229,6 @@ Using **Qwen Cloud**, NextHire can:
 
 ---
 
-# 📸 Screenshots
-
-Add screenshots of:
-
-- Landing Page
-- Recruiter Dashboard
-- Candidate Dashboard
-- Resume Analysis
-- Job Matching
-- Interview Module
-- Analytics Dashboard
-
----
-
 # 🚀 Deployment
 
 Deploy using:
