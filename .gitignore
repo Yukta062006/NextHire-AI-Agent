@@ -1,0 +1,65 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# env files (can opt-in for committing if needed)
+.env*
+backend/.env
+backend/.env.*
+!backend/.env.example
+
+# database & media
+*.db
+backend/uploads/
+backend/nexthire.db
+backend/__pycache__/
+backend/app/__pycache__/
+backend/app/agents/__pycache__/
+backend/app/models/__pycache__/
+backend/app/routers/__pycache__/
+backend/app/schemas/__pycache__/
+backend/app/services/__pycache__/
+backend/app/utils/__pycache__/
+backend/app/websocket/__pycache__/
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# firebase cache
+.firebase/
+firebase-debug.log*
+
+# agents skills
+.agents/

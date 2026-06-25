@@ -1,0 +1,35 @@
+version: "3.8"
+
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: builder
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_API_URL=http://backend:8001
+    command: npm run dev
+    volumes:
+      - ./src:/app/src
+      - ./public:/app/public
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: ../Dockerfile.backend
+    ports:
+      - "8001:8001"
+    environment:
+      - DASHSCOPE_API_KEY=${DASHSCOPE_API_KEY}
+      - DATABASE_URL=sqlite+aiosqlite:///./nexthire.db
+      - JWT_SECRET=${JWT_SECRET:-nexthire-secret-key}
+      - BACKEND_PORT=8001
+      - FRONTEND_URL=http://localhost:3000
+    volumes:
+      - ./backend:/app
+      - db-data:/app/data
+
+volumes:
+  db-data:
