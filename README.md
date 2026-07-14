@@ -1,26 +1,40 @@
 # 🤖 NextHire AI Recruiter Agent
 
-> **An AI-powered autonomous hiring platform built with Qwen Cloud that streamlines recruitment through intelligent resume analysis, job matching, interview automation, and recruiter-assisted hiring workflows.**
+> **An AI-powered recruitment platform that streamlines hiring through intelligent resume analysis, job matching, interview assistance, and recruiter-focused workflows.**
 
 <p align="center">
   <img src="public/logo.png" alt="NextHire Logo" width="180"/>
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Qwen%20Cloud-AI-blue?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/Alibaba%20Cloud-Backend-orange?style=for-the-badge" />
   <img src="https://img.shields.io/badge/Next.js-Frontend-black?style=for-the-badge" />
   <img src="https://img.shields.io/badge/FastAPI-Backend-green?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/MongoDB-Database-brightgreen?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Vercel-Deployed-black?style=for-the-badge" />
   <img src="https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge" />
 </p>
 
 ---
 
+# 🚀 Live Demo
+
+### 🌐 Frontend (Vercel)
+
+https://next-hire-steel.vercel.app/
+
+### ⚡ Backend (Render)
+
+https://nexthire-1-lrdw.onrender.com
+
+### 📚 API Docs
+
+https://nexthire-1-lrdw.onrender.com/docs
+
+---
+
 # 🚀 Overview
 
-NextHire AI Recruiter Agent is a production-ready autonomous hiring assistant designed for the **Global AI Hackathon Series with Qwen Cloud**.
-
-Instead of acting as a simple chatbot, NextHire behaves like an AI recruiter capable of analyzing resumes, matching candidates with jobs, generating interviews, assisting recruiters, and automating recruitment workflows using **Qwen Cloud AI**.
+NextHire is a modern AI-powered recruitment platform designed to simplify the hiring process for recruiters and job seekers. It offers secure authentication, intelligent resume analysis, ATS scoring, candidate management, and recruiter dashboards within a responsive and user-friendly interface.
 
 ---
 
@@ -36,9 +50,7 @@ Instead of acting as a simple chatbot, NextHire behaves like an AI recruiter cap
 - 📅 Interview Scheduling
 - 👨‍💼 Recruiter Dashboard
 - 👩‍🎓 Candidate Dashboard
-- 🔒 Role-Based Authentication
-- 🧠 Persistent AI Memory
-- 👨‍⚖️ Human-in-the-Loop Approval
+- 🔒 Secure Authentication
 - 📈 Hiring Analytics
 
 ---
@@ -60,38 +72,28 @@ Instead of acting as a simple chatbot, NextHire behaves like an AI recruiter cap
 - REST API
 - JWT Authentication
 
-## AI
-
-- Qwen Cloud
-- DashScope API
-- OpenAI SDK
-
 ## Database
 
 - MongoDB Atlas
 
 ## Deployment
 
-- Alibaba Cloud ECS
-- Vercel
+- Vercel (Frontend)
+- Render (Backend)
 
 ---
 
 # 🏗 System Architecture
 
 ```
-                   Next.js Frontend
+                  Next.js Frontend (Vercel)
                            │
                            ▼
-                 FastAPI Backend
+                FastAPI Backend (Render)
                            │
-      ┌──────────────┬───────────────┐
-      │              │               │
-      ▼              ▼               ▼
-  Qwen Cloud     MongoDB Atlas   Email Service
-      │
-      ▼
- Autonomous Hiring Workflow
+             ┌─────────────┴─────────────┐
+             ▼                           ▼
+      MongoDB Atlas             AI Resume Analysis
 ```
 
 ---
@@ -99,16 +101,16 @@ Instead of acting as a simple chatbot, NextHire behaves like an AI recruiter cap
 # 🔄 Workflow
 
 ```
-Resume Upload
+User Login
       │
       ▼
-Resume Parsing
+Upload Resume
       │
       ▼
-Qwen AI Analysis
+Resume Analysis
       │
       ▼
-Skill Extraction
+ATS Score
       │
       ▼
 Job Matching
@@ -117,16 +119,10 @@ Job Matching
 Candidate Ranking
       │
       ▼
-Interview Generation
+Interview Questions
       │
       ▼
-Recruiter Approval
-      │
-      ▼
-Interview Scheduling
-      │
-      ▼
-Email Notification
+Recruiter Dashboard
 ```
 
 ---
@@ -134,12 +130,11 @@ Email Notification
 # 📂 Project Structure
 
 ```
-NextHire-Qwen/
+NextHire/
 │
 ├── frontend/
 ├── backend/
 ├── public/
-├── docs/
 ├── README.md
 ├── LICENSE
 └── docker-compose.yml
@@ -147,14 +142,14 @@ NextHire-Qwen/
 
 ---
 
-# ⚙ Installation
+# ⚙️ Installation
 
 ## Clone Repository
 
 ```bash
-git clone https://github.com/yourusername/NextHire-Qwen.git
+git clone https://github.com/Yukta062006/NextHire.git
 
-cd NextHire-Qwen
+cd NextHire
 ```
 
 ---
@@ -162,6 +157,8 @@ cd NextHire-Qwen
 ## Frontend
 
 ```bash
+cd frontend
+
 npm install
 
 npm run dev
@@ -183,84 +180,78 @@ uvicorn app.main:app --reload
 
 # 🔐 Environment Variables
 
-Backend `.env`
+### Backend (`.env`)
 
 ```env
-DASHSCOPE_API_KEY=your_qwen_api_key
-
 DATABASE_URL=your_database_url
 
 JWT_SECRET=your_secret_key
+
+SECRET_KEY=your_secret_key
 ```
 
-Frontend `.env.local`
+### Frontend (`.env.local`)
 
 ```env
 NEXT_PUBLIC_API_URL=http://localhost:8001
+
+NEXT_PUBLIC_FIREBASE_API_KEY=your_api_key
+
+NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=your_project.firebaseapp.com
+
+NEXT_PUBLIC_FIREBASE_PROJECT_ID=your_project_id
+
+NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=your_project.appspot.com
+
+NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=your_sender_id
+
+NEXT_PUBLIC_FIREBASE_APP_ID=your_app_id
 ```
 
 ---
 
 # 📡 API Documentation
 
-When the backend is running:
+After starting the backend:
 
 ```
 http://localhost:8001/docs
 ```
 
-Swagger UI provides complete API documentation.
+Production:
 
----
-
-# 🎯 AI Capabilities
-
-Using **Qwen Cloud**, NextHire can:
-
-- Analyze resumes
-- Extract candidate skills
-- Match candidates to job descriptions
-- Generate interview questions
-- Evaluate candidate responses
-- Recommend hiring decisions
-- Generate recruiter emails
-- Store recruiter preferences
-- Maintain candidate memory
+```
+https://nexthire-1-lrdw.onrender.com/docs
+```
 
 ---
 
 # 🚀 Deployment
 
-Deploy using:
+### Frontend
 
-- Alibaba Cloud ECS
+- **Vercel**
 
-## Database
+### Backend
 
-- MongoDB Atlas
+- **Render**
+
+### Database
+
+- **MongoDB Atlas**
 
 ---
 
 # 📈 Future Improvements
 
-- Voice-based AI Interviews
-- Multi-Agent Collaboration
+- AI-powered Resume Recommendations
+- Voice-based Interviews
 - Calendar Integration
-- Gmail Integration
-- Predictive Hiring Analytics
-- ATS Integrations
+- Gmail Notifications
+- Company Dashboard
+- Candidate Analytics
 - Mobile Application
 - Multilingual Support
-
----
-
-# 🏆 Hackathon
-
-**Global AI Hackathon Series with Qwen Cloud**
-
-**Organizer:** Alibaba Cloud × Devpost
-
-**Track:** Autopilot Agent
 
 ---
 
